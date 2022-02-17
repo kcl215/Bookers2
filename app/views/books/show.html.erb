@@ -1,32 +1,31 @@
-<div class="container px-5 px-sm-0">
-  <div class="row">
-    <%= render 'books/info', books: @books,user: @user %>
 
+  <div class="container px-5 px-sm-0">
+    <div class="row">
+        <%= render 'books/info', books: @books,user: @user %>
 
-
-<div class="col-md-8 offset-md-1">
-  <h3>Book detail</h3>
-  <table class="table">
-      <tr>
-        <td><%= link_to user_path(@books.user) do %>
-        <%= image_tag @user.get_profile_image(40,40) %><br>
-        <%= @user.name %>
-        <% end%></td>
-        <td><%= link_to @books.title, book_path(@books.id) %></td>
-        <td><%= @books.body %></td>
-        <td>
-          <% if @books.user == current_user %>
-          <%= link_to "Edit", edit_book_path(@books.id), class:"btn btn-sm btn-success" %>
-          <% end %>
-        </td>
-        <td>
-          <% if @books.user == current_user %>
-          <%= link_to "Delete", book_path(@books), method: :delete,"data-confirm" => "本当に消しますか？" , class:"btn btn-sm btn-danger" %>
-          <% end %>
-        </td>
-      </tr>
-  </table>
-
-</div>
+      <div class="col-md-8 offset-md-1">
+      <h3>Book detail</h3>
+        <table class="table">
+          <tr>
+            <td><%= link_to user_path(@books.user) do %>
+              <%= image_tag @user.get_profile_image(40,40) %><br>
+              <%= @user.name %>
+              <% end%></td>
+            <td><%= link_to @books.title, book_path(@books.id) %></td>
+            <td><%= @books.body %></td>
+            <td>
+              <% if @books.user == current_user %>
+              <%= link_to "Edit", edit_book_path(@books.id), class:"btn btn-sm btn-success" %>
+              <% end %>
+            </td>
+            <td>
+              <% if @books.user == current_user %>
+              <%= link_to "Delete", book_path(@books), method: :delete,"data-confirm" => "本当に消しますか？" , class:"btn btn-sm btn-danger" %>
+              <% end %>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
   </div>
-</div>
+</main>
